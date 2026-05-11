@@ -8,7 +8,7 @@ A Go web application demonstrating Kubernetes Horizontal Pod Autoscaling (HPA) w
 |--------|-----------|------------------------------------------|
 | GET    | /health   | Health check                             |
 | GET    | /metrics  | Prometheus metrics                       |
-| POST   | /load     | Generate CPU load (triggers HPA scaling) |
+| POST   | /load     | Generate CPU load to trigger HPA scaling |
 
 ### POST /load
 
@@ -25,7 +25,7 @@ A Go web application demonstrating Kubernetes Horizontal Pod Autoscaling (HPA) w
 - [minikube](https://minikube.sigs.k8s.io/docs/start/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
-- [k6](https://k6.io/docs/get-started/installation/) (for load testing)
+- [k6](https://k6.io/docs/get-started/installation/)
 
 ## Quick Start
 
