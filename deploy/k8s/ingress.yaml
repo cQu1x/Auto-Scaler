@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: auto-scaler-ingress
+spec:
+  rules:
+    - host: auto-scaler.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: auto-scaler-service
+                port:
+                  number: 80

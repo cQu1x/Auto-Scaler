@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: auto-scaler-service
+  labels:
+    app: auto-scaler
+spec:
+  selector:
+    app: auto-scaler
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
