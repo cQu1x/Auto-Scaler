@@ -79,6 +79,11 @@ Access Grafana (credentials: `admin` / `prom-operator`):
 minikube service kube-prometheus-grafana
 ```
 
+To get password for admin account in Grafana:
+```bash
+kubectl --namespace default get secrets kube-prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
+```
+
 > **Note (WSL2):** If the browser doesn't open automatically, run `minikube service kube-prometheus-grafana --url` to get the URL and open it manually.
 
 ### 5. Run load test
@@ -97,6 +102,17 @@ BASE_URL=http://localhost:8080 make load-test
 ```
 
 Expected behavior: CPU usage rises above 50% → HPA scales pods up to max 5 → load ends → pods scale back down after ~60s.
+
+You can also see the CPU usage and amount of replicas using following command
+```bash
+kubectl get hpa auto-scaler-hpa
+```
+
+Inside Grafana here are the main dashboards:
+- Kubernetes / Compute Resources / Workload
+- Kubernetes / Compute Resources / Namespace (Workloads)
+
+There you can track number of pods, CPU usage and other
 
 ## Metrics
 
